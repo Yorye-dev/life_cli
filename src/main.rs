@@ -1,7 +1,23 @@
 use clap::Parser;
 
-#[derive(Parser, Debug)]
+#[derive(Parser)]
+#[command(name = "life")]
+#[command(about = "TODO")]
 #[command(version, about, long_about = None)]
+
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+
+}
+#[command(subcommand)]
+enum Commands{
+    Add {},
+    List,
+    Done{},
+    Remove{}
+}
+
 struct Args {
     /// Name of the person to greet
     #[arg(short, long)]
